@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7fbff">
+  <title>VivaLocal — descubra sua região</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="register-screen" class="register-screen">
+    <div class="register-glow glow-one"></div><div class="register-glow glow-two"></div>
+    <section class="register-card glass">
+      <div class="brand brand-center">
+        <div class="brand-mark">✦</div>
+        <div><strong>Viva<span>Local</span></strong><small>DESCUBRA SUA REGIÃO</small></div>
+      </div>
+      <p class="eyebrow">CULTURA • HISTÓRIA • TURISMO</p>
+      <h1>Conheça o lugar<br>que chama de <em>lar.</em></h1>
+      <p class="muted intro">Crie seu perfil e explore as histórias, tradições e lugares especiais da sua comunidade.</p>
+      <form id="register-form">
+        <div class="form-grid">
+          <label>Nome de usuário<input id="name" required placeholder="Como podemos chamar você?"></label>
+          <label>Idade<input id="age" type="number" min="1" max="120" required placeholder="Sua idade"></label>
+          <label>Estado
+            <select id="state" required><option value="">Selecione seu estado</option></select>
+          </label>
+          <label>Cidade<input id="city" required placeholder="Sua cidade"></label>
+          <label class="full">Bairro<input id="neighborhood" required placeholder="Em qual bairro você mora?"></label>
+        </div>
+        <button class="primary-button full-button" type="submit">Explorar minha região <span>↗</span></button>
+      </form>
+      <p class="tiny-note">Seus dados ficam salvos neste navegador neste protótipo.</p>
+    </section>
+    <div class="floating-orb orb-a"></div><div class="floating-orb orb-b"></div>
+  </main>
+
+  <div id="app-screen" class="app-shell hidden">
+    <aside class="sidebar glass">
+      <a class="brand side-brand" href="#" aria-label="VivaLocal início">
+        <div class="brand-mark">✦</div><div><strong>Viva<span>Local</span></strong><small>EXPLORE PERTO</small></div>
+      </a>
+      <div class="side-caption">MENU PRINCIPAL</div>
+      <nav>
+        <button class="nav-link active" data-section="home"><span>⌂</span> Início</button>
+        <button class="nav-link" data-section="explore"><span>⌖</span> Explorar lugares</button>
+        <button class="nav-link" data-section="culture"><span>✺</span> Cultura e tradições</button>
+        <button class="nav-link" data-section="favorites"><span>♡</span> Meus favoritos</button>
+        <button class="nav-link" data-section="visited"><span>◷</span> Visitados recentemente</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-weather"><span>☀</span><div><b>Seu próximo passeio</b><small>Começa com uma descoberta.</small></div></div>
+        <button id="edit-profile" class="nav-link"><span>⚙</span> Editar perfil</button>
+      </div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <label class="searchbox"><span>⌕</span><input id="search" placeholder="Buscar cidade, bairro ou ponto turístico..."></label>
+        <div class="top-user"><span class="online-dot"></span><span id="top-name">Visitante</span><div class="avatar" id="avatar">V</div></div>
+      </header>
+
+      <section id="home-section" class="content-section">
+        <div class="hero-banner">
+          <div class="hero-copy"><span class="eyebrow">SEU GUIA DE DESCOBERTAS</span><h1>Olá, <span id="hello-name">viajante</span>!</h1><p>Tem muita história esperando para ser descoberta na sua comunidade.</p><button class="light-button" data-go="explore">Descobrir lugares <b>↗</b></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="sun-disc"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="landmark">⌂</div><span class="hero-spark">✦</span></div>
+        </div>
+
+        <div class="location-strip">
+          <div class="location-icon">⌖</div><div><small>SUA LOCALIZAÇÃO</small><strong id="location-text">Cidade, Estado</strong><span id="neighborhood-text">Seu bairro</span></div>
+          <button class="text-button" id="change-location">Editar</button>
+        </div>
+
+        <div class="section-heading"><div><span class="eyebrow">FEITO PARA VOCÊ</span><h2>Explore e se encante</h2></div><button class="text-button" data-go="explore">Ver todos <b>→</b></button></div>
+        <div id="nearby-grid" class="place-grid"></div>
+
+        <div class="two-columns">
+          <section class="panel glass">
+            <div class="section-heading compact"><div><span class="eyebrow">MEMÓRIA VIVA</span><h2>Cultura e tradições</h2></div><button class="text-button" data-go="culture">Ver mais →</button></div>
+            <div class="culture-feature"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=85" alt="Festa popular com iluminação e público"><div><h3>As tradições que contam quem somos</h3><p>Conheça festas, sabores, manifestações artísticas e costumes que atravessam gerações.</p><button class="outline-button" data-go="culture">Conhecer cultura</button></div></div>
+          </section>
+          <section class="panel opinion-panel">
+            <span class="eyebrow">A COMUNIDADE É SUA</span><h2>Compartilhe uma descoberta!</h2><p>Conhece um cantinho especial que merece ser visitado? Conte para outras pessoas.</p>
+            <button class="primary-button" id="open-suggestion">Enviar sugestão <span>↗</span></button>
+            <div class="opinion-decoration">✳</div>
+          </section>
+        </div>
+        <section class="panel glass recent-panel"><div class="section-heading compact"><div><span class="eyebrow">SUA JORNADA</span><h2>Visitados recentemente</h2></div><button class="text-button" data-go="visited">Ver histórico →</button></div><div id="recent-list" class="recent-list"></div></section>
+      </section>
+
+      <section id="explore-section" class="content-section hidden">
+        <div class="page-heading"><span class="eyebrow">NOVOS CAMINHOS</span><h1>Explore lugares</h1><p>Descubra pontos turísticos e histórias de diferentes cantos do Brasil.</p></div>
+        <div class="filter-row"><button class="filter-chip selected" data-filter="all">Todos</button><button class="filter-chip" data-filter="Norte">Norte</button><button class="filter-chip" data-filter="Nordeste">Nordeste</button><button class="filter-chip" data-filter="Centro-Oeste">Centro-Oeste</button><button class="filter-chip" data-filter="Sudeste">Sudeste</button><button class="filter-chip" data-filter="Sul">Sul</button></div>
+        <div id="explore-grid" class="place-grid"></div>
+      </section>
+
+      <section id="culture-section" class="content-section hidden">
+        <div class="page-heading"><span class="eyebrow">IDENTIDADE E PERTENCIMENTO</span><h1>Cultura e tradições</h1><p>As histórias, festas e costumes que tornam cada região única.</p></div>
+        <div class="culture-grid">
+          <article class="culture-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85" alt="Celebração cultural"><div><span class="eyebrow">FESTAS POPULARES</span><h2>Festas que reúnem comunidades</h2><p>Festas juninas, carnaval, celebrações religiosas e encontros populares mantêm vivas as memórias coletivas. Cada cidade tem seus próprios ritmos, comidas e formas de celebrar.</p></div></article>
+          <article class="culture-card"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=85" alt="Comida tradicional"><div><span class="eyebrow">GASTRONOMIA</span><h2>Sabores que contam histórias</h2><p>Receitas regionais carregam influências indígenas, africanas, europeias e de muitos outros povos. A culinária é uma forma deliciosa de conhecer a identidade de um lugar.</p></div></article>
+          <article class="culture-card"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=900&q=85" alt="Apresentação artística"><div><span class="eyebrow">ARTE E EXPRESSÃO</span><h2>Arte que atravessa gerações</h2><p>Música, dança, artesanato e manifestações populares preservam conhecimentos e fortalecem os laços entre as pessoas.</p></div></article>
+        </div>
+      </section>
+
+      <section id="favorites-section" class="content-section hidden"><div class="page-heading"><span class="eyebrow">SALVOS POR VOCÊ</span><h1>Meus favoritos</h1><p>Reúna os lugares que você quer conhecer ou visitar novamente.</p></div><div id="favorites-grid" class="place-grid"></div></section>
+      <section id="visited-section" class="content-section hidden"><div class="page-heading"><span class="eyebrow">SUAS DESCOBERTAS</span><h1>Visitados recentemente</h1><p>Veja os lugares que você marcou como visitados.</p></div><div id="visited-grid" class="place-grid"></div></section>
+    </section>
+  </div>
+
+  <dialog id="place-dialog" class="modal"><button class="modal-close" data-close>×</button><div id="place-detail"></div></dialog>
+  <dialog id="suggestion-dialog" class="modal small-modal"><button class="modal-close" data-close>×</button><span class="eyebrow">DICA DA COMUNIDADE</span><h2>Indique um lugar especial</h2><form id="suggestion-form"><label>Nome do lugar<input id="suggestion-name" required placeholder="Ex.: praça, museu, mirante..."></label><label>Cidade e estado<input id="suggestion-city" required placeholder="Ex.: Curitiba, PR"></label><label>Conte por que vale a visita<textarea id="suggestion-description" required rows="4" placeholder="Compartilhe uma história, dica ou curiosidade..."></textarea></label><button class="primary-button full-button">Enviar sugestão <span>↗</span></button></form><p class="tiny-note">Nesta versão, a sugestão fica salva apenas neste navegador.</p></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
